@@ -40,8 +40,6 @@ public class AdbStateReceiver extends BroadcastReceiver {
             @Override
             public void onClick(View v) {
                 boolean isAdbEnabled = intent.getBooleanExtra("adb", false);
-                boolean isUsbEnabled = intent.getBooleanExtra("mtp", false);
-                boolean isUsbEnabled2 = intent.getBooleanExtra("connected", false);
                 String check1 = getProp("getprop init.svc.adbd");
                 String check2 = getProp("getprop persist.sys.usb.config");
                 String check3 = getProp("getprop init.svc.usbd");
@@ -52,11 +50,8 @@ public class AdbStateReceiver extends BroadcastReceiver {
                 checkProp2.setText("persist.sys.usb.config: " + check2);
                 checkProp3.setText("init.svc.usbd: " + check3);
                 checkProp4.setText("sys.usb.config: " + check4);
-                checkProp5.setText("sys.usb.state: " + check5
-                                + " isAdbEnabled : " + (isAdbEnabled ? "true" : "false")
-                                + " isUsbEnabled: " + (isUsbEnabled ? "true" : "false")
-                                + " isUsbEnabled2 :" + (isUsbEnabled2 ? "true" : "false"));
-                if (isAdbEnabled || isUsbEnabled || isUsbEnabled2) {
+                checkProp5.setText("sys.usb.state: " + check5);
+                if (isAdbEnabled) {
                     adbStatusTextView.setText("ADB Debugging is ENABLED");
                 } else {
                     adbStatusTextView.setText("ADB Debugging is DISABLED");
