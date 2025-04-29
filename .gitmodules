@@ -1,0 +1,3 @@
+[submodule "getnetwork_androidapp"]
+	path = getnetwork_androidapp
+	url = https://github.com/doanvtamhuynh/getnetwork_androidapp.git
